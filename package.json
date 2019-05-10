@@ -2,7 +2,7 @@
   "name": "nodejs-boiler",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/sengathit/nodejs-boiler/issues"
   },
-  "homepage": "https://github.com/sengathit/nodejs-boiler#readme"
+  "homepage": "https://github.com/sengathit/nodejs-boiler#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
 }
