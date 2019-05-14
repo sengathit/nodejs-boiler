@@ -2,18 +2,43 @@
  * Packages required for 
  * this application.
  */
-let express = require('express');
-let bodyParser = require('body-parser');
-let request = require('request');
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
+const path = require('path');
+const hbs = require('hbs');
 
 /**
  * Application level variables
  */
-let port = process.env.PORT || 3000;
-let router = require('./router/router');
+const port = process.env.PORT || 3000;
+const router = require('./router/router');
 
-let app = express();
+const app = express();
 
+/**
+ * Path to static assets
+ */
+const publicDirectoryPath = path.join(__dirname, '/public');
+
+/**
+ * Path to views/partials
+ */
+const pathToPartials = path.join(__dirname,'views/partials');
+
+/**
+ * Set the handlebars view engine
+ */
+app.set('view engine','hbs');
+hbs.registerPartials(pathToPartials);
+/**
+ * Setup static directory and assets to serve
+ */
+app.use(express.static(publicDirectoryPath))
+
+/**
+ * Routes
+ */
 app.use('/',router);
 app.use('/about',router);
 
