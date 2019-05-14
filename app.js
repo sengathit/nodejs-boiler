@@ -34,7 +34,13 @@ hbs.registerPartials(pathToPartials);
 /**
  * Setup static directory and assets to serve
  */
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath));
+
+/**
+ * Parse incoming request
+ */
+app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
 /**
  * Routes
